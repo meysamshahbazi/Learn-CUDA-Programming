@@ -21,7 +21,8 @@ void print_output(int *a, int *b, int*c) {
 
 __global__ void device_add(int *a, int *b,int *c)
 {
-    c[threadIdx.x] = a[threadIdx.x] + b[threadIdx.x];
+    int index = blockIdx.x*blockDim.x + threadIdx.x;
+    c[index] = a[index] + b[index];
 }
 
 
@@ -47,9 +48,9 @@ int main()
     // host_add(a,b,c);
 
     cudaMemcpy(d_a, a, size, cudaMemcpyHostToDevice);
-    cudaMemcpy(d_a, a, size, cudaMemcpyHostToDevice);
+    cudaMemcpy(d_b, b, size, cudaMemcpyHostToDevice);
 
-    device_add<<<1,N>>>(d_a, d_b, d_c);
+    device_add<<<16,32>>>(d_a, d_b, d_c);
 
     cudaMemcpy(c, d_c, size,cudaMemcpyDeviceToHost);
 
@@ -63,7 +64,7 @@ int main()
     cudaFree(d_a);
     cudaFree(d_b);
     cudaFree(d_c);
-    
+
     printf("\n");
 
     return 0;
