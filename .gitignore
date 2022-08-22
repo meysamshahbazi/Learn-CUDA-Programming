@@ -14,5 +14,6 @@
 *.pyc
 .DS_Store
 __pycache__
+*/build/*
 
 !Makefile
