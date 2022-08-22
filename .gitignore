@@ -15,5 +15,6 @@
 .DS_Store
 __pycache__
 */build/*
+vec-add/build/*
 
 !Makefile

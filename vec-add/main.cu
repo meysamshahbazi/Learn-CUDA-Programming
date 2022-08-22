@@ -40,6 +40,7 @@ int main()
     free(a);
     free(b);
     free(c);
+    printf("\n");
 
     return 0;
 }
