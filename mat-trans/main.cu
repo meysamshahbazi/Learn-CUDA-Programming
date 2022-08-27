@@ -22,7 +22,9 @@ void matrix_transpose_naive(int *input, int *output)
 __global__
 void matrix_trnspose_shared(int *input,int *output)
 {
-    __shared__ int shared_mem [BLOCK_SIZE][BLOCK_SIZE];
+    // __shared__ int shared_mem [BLOCK_SIZE][BLOCK_SIZE];
+    // use + 1 for no bank conflict?!
+    __shared__ int shared_mem [BLOCK_SIZE][BLOCK_SIZE + 1];
 
     int indexX = threadIdx.x + blockIdx.x*blockDim.x;
     int indexY = threadIdx.y + blockIdx.y*blockDim.y;
@@ -34,7 +36,7 @@ void matrix_trnspose_shared(int *input,int *output)
     int localIndexY = threadIdx.y;
 
     int index = indexY + N*indexX;
-    int transpoesedIndex = tindexY + N*tindexX;
+    int transpoesedIndex = tindexX + N*tindexY;
 
 
     shared_mem[localIndexX][localIndexY] = input[index];
@@ -100,8 +102,6 @@ int main()
     free(b);
     cudaFree(d_a);
     cudaFree(d_b);
-
-
-
+    
     return 0;
 }
