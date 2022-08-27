@@ -1,4 +1,10 @@
+
+
 # Learn CUDA Programming 
+
+## TODO:
+- [ ] fix problem of texture bindig in img-scale project
+-----
 
 <a href="https://www.packtpub.com/application-development/cuda-cookbook?utm_source=github&utm_medium=repository&utm_campaign=9781788996242"><img src="https://www.packtpub.com/media/catalog/product/cache/e4d64343b1bc593f1c5348fe05efa4a6/9/7/9781788996242-original.jpeg" alt="Learn CUDA Programming " height="256px" align="right"></a>
 
