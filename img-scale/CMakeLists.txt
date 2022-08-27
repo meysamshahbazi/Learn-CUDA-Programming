@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8)
-project( vec-add )
+project(img-scale)
 
 
 # If the package has been found, several variables will
@@ -24,7 +24,7 @@ set(CUDA_NVCC_FLAGS
 
 SET(GCC_COVERAGE_COMPILE_FLAGS "-std=c++14 -Wunused-function")
 SET( CMAKE_CXX_FLAGS  "${CMAKE_CXX_FLAGS} ${GCC_COVERAGE_COMPILE_FLAGS}" )
-cuda_add_executable( vec-add main.cu scrImagePgmPpmPackage.cpp)
+cuda_add_executable( ${PROJECT_NAME} main.cu scrImagePgmPpmPackage.cpp)
 
 # SET( CUFFT_LIB /usr/local/cuda/lib64/libcufft.so.8.0)
 
