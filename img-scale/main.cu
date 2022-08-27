@@ -27,6 +27,22 @@ int main(int argc, const char * argv[])
     get_PgmPpmParams(inputStr,&height,&width);
     data  = (unsigned char*)malloc(width*height*sizeof(unsigned char));
     printf("\n Reading image width height and width [%d][%d]\n", height, width);
+    scr_read_pgm( inputStr , data, height, width );//loading an image to data
 
+    scaled_height = (int)(height*scaling_ratio);
+	scaled_width = (int)(width*scaling_ratio);
+	scaled_data = (unsigned char*)malloc(scaled_height*scaled_width*sizeof(unsigned char));
+	printf("\n scaled image width height and width [%d][%d]", scaled_height, scaled_width);
+
+    return_value = cudaMallocArray(&cu_array,&channel_desc,width,height);
+
+    return_value = (cudaError_t)(return_value | 
+                                cudaMemcpy(cu_array,data,height*width*sizeof(unsigned char),cudaMemcpyHostToDevice ) );
+
+    if(return_value != cudaSuccess)
+        printf("\n Got error while running CUDA API Array Copy");
+
+
+    printf("\n");
     return 0;
 }
