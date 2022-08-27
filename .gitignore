@@ -1,5 +1,7 @@
 vec-add/build/*
-
+*/build/*
+Chapter02/02_memory_overview/01_sgemm/sgemm
+Chapter02/02_memory_overview/02_vector_addition/vec_add
 # Ignore all
 # *
 
