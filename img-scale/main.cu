@@ -4,8 +4,6 @@
 
 
 /*
-
-
 int main(int argc, const char * argv[])
 {
 	int height=0, width =0, scaled_height=0,scaled_width=0;
@@ -67,7 +65,6 @@ int main(int argc, const char * argv[])
     printf("\n");
     return 0;
 }
-
 */
 
 
