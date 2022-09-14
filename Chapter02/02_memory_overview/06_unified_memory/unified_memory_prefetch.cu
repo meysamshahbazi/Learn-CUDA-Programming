@@ -22,7 +22,8 @@ int main(void)
     cudaMallocManaged(&y, N*sizeof(float));
 
     // initialize x and y arrays on the host
-    for (int i = 0; i < N; i++) {
+    for (int i = 0; i < N; i++) 
+    {
         x[i] = 1.0f;
         y[i] = 2.0f;
     }
