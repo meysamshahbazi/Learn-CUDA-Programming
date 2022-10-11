@@ -3,11 +3,6 @@ set(CMAKE_MODULE_PATH "${CMAKE_SOURCE_DIR}" ${CMAKE_MODULE_PATH})
 
 project( cublas )
 
-# If the package has been found, several variables will
-# be set, you can find the full list with descriptions
-# in the OpenCVConfig.cmake file.
-# Print some message showing some of them
-
 find_package(CUDA REQUIRED)
 # find_package(cuBLAS REQUIRED)
 set(CUDA_SEPARABLE_COMPILATION ON)
