@@ -16,7 +16,7 @@
 //! @param C          matrix C as provided to device
 //! @param N          height of matrix A and matrix C
 //! @param M          width of matrix B and matrix C
-//! @param K          width of matrix A and height of matrix C
+//! @param K          width of matrix A and height of matrix B
 //! @param alpha      scala value for matrix multiplication
 //! @param beta       scala value for matrix summation with C
 ////////////////////////////////////////////////////////////////////////////////
